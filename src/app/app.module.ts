@@ -10,15 +10,21 @@ import { HomeComponent } from './home/home.component';
 import { MateriasPageComponent } from './materias-page/materias-page.component';
 import { AulaComponent } from './aula/aula.component';
 import { ExercicioComponent } from './exercicio/exercicio.component';
+import { MateriaCardComponent } from './cards/materia-card/materia-card.component';
+import { AulaCardComponent } from './cards/aula-card/aula-card.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'materia/:materiaId', component: MateriaComponent},
   {path: 'home', component: HomeComponent},
   {path: 'materias', component: MateriasPageComponent},
-  {path: 'materia/:materiaId/aula/:idaula', component: AulaComponent},
-  {path: 'materia/:materiaId/aula/:idaula/exercicio/:exercicioId', component: ExercicioComponent}
+  {path: 'materia/:materiaId/aula/:idaula', component: AulaComponent, children:[
+    {path: 'exercicio/:exercicioId', component: ExercicioComponent}]},
+  {path: 'page-not-found', component: PageNotFoundComponent},
   
+  //This path has to be the last path in Routes array
+  {path: '**', redirectTo: '/page-not-found'}
 ];
 
 @NgModule({
@@ -30,7 +36,10 @@ const appRoutes: Routes = [
     HomeComponent,
     MateriasPageComponent,
     AulaComponent,
-    ExercicioComponent
+    ExercicioComponent,
+    MateriaCardComponent,
+    AulaCardComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
