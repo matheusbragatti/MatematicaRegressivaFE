@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,12 +14,15 @@ import { ExercicioComponent } from './exercicio/exercicio.component';
 import { MateriaCardComponent } from './cards/materia-card/materia-card.component';
 import { AulaCardComponent } from './cards/aula-card/aula-card.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FooterComponent } from './footer/footer.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'materia/:materiaId', component: MateriaComponent},
-  {path: 'home', component: HomeComponent},
+  {path: 'home', redirectTo: '/'},
   {path: 'materias', component: MateriasPageComponent},
+  {path: 'cadastro', component: CadastroComponent},
   {path: 'materia/:materiaId/aula/:idaula', component: AulaComponent, children:[
     {path: 'exercicio/:exercicioId', component: ExercicioComponent}]},
   {path: 'page-not-found', component: PageNotFoundComponent},
@@ -39,11 +43,14 @@ const appRoutes: Routes = [
     ExercicioComponent,
     MateriaCardComponent,
     AulaCardComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FooterComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

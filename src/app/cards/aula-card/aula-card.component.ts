@@ -11,15 +11,15 @@ export class AulaCardComponent implements OnInit {
   constructor() { }
 
   @Input() objectAula: AulaCardModel;
-  descricao: string = '';
-  nome:string = '';
+  description: string = '';
+  name:string = '';
   id:number;
   currentProgress:number;
   maxProgress:number;
 
   ngOnInit(): void {
-    this.nome = this.objectAula.name;
-    this.descricao = this.objectAula.description;
+    this.name = this.objectAula.name;
+    this.description = this.objectAula.description;
     this.id = this.objectAula.id;
     this.currentProgress = this.objectAula.currentProgress;
     this.maxProgress = this.objectAula.maxProgress;
