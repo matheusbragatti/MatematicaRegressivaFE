@@ -1,1 +1,80 @@
-<p>cadastro works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pt-md-4 mx-auto text-center">
+                <h1>Cadastro</h1>
+              </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="firstName">Primeiro Nome</label>
+                    <span class="alert alert-danger" *ngIf="!signupForm.get('firstName').valid && signupForm.get('firstName').touched">Por favor insira um nome valido</span>
+                    <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="ex: Maria" autocomplete="given-name">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="surname">Sobrenome</label>
+                    <span class="alert alert-danger" *ngIf="!signupForm.get('surname').valid && signupForm.get('surname').touched">Por favor insira um sobrenome valido</span>
+                    <input type="text" class="form-control" id="surname" formControlName="surname" placeholder="ex: da Silva Santos" autocomplete="family-name">
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <span class="alert alert-danger" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Por favor insira um email valido</span>
+                    <input type="email" class="form-control" id="email" formControlName="email" placeholder="ex: matemarica@regressiva.com.br" autocomplete="email">
+                  </div>
+                <div class="form-group">
+                  <label for="password">Senha</label>
+                  <span class="alert alert-danger" *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">Por favor insira uma senha valida</span>
+                  <input type="password" class="form-control" id="password" formControlName="password" placeholder="ex: senha87#" autocomplete="new-password">
+                </div>
+                <div class="form-group">
+                  <label for="passwordCheck">Confirmar a senha</label>
+                  <span class="alert alert-danger" *ngIf="!signupForm.get('passwordCheck').valid && signupForm.get('passwordCheck').touched">Por favor repita a senha digitada</span>
+                  <input type="password" class="form-control" id="passwordCheck" formControlName="passwordCheck" placeholder="Digite sua senha novamente" autocomplete="new-password">
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="city">Cidade</label>
+                    <span class="alert alert-danger" *ngIf="!signupForm.get('city').valid && signupForm.get('city').touched">Por favor insira uma cidade valida</span>
+                    <input type="text" class="form-control" id="city" formControlName="city">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="state">Estado</label>
+                    <span class="alert alert-danger" *ngIf="!signupForm.get('state').valid && signupForm.get('state').touched">Por favor insira um estado valido</span>
+                    <select id="state" class="form-control" formControlName="state">
+                      <option selected>Escolha um estado...</option>
+                      <option>Sao Paulo</option>
+                      <option>Rio de Janeiro</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                    <legend class="col-form-label col-sm-1">Genero</legend>
+                    <div class="col-sm-10">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="gridRadios1" formControlName="gender" value="homem">
+                        <label class="form-check-label" for="gridRadios1">
+                          Homem
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="gridRadios2" formControlName="gender" value="mulher">
+                        <label class="form-check-label" for="gridRadios2">
+                          Mulher
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                <button type="submit" class="btn btn-primary" [disabled]='!signupForm.valid'>Cadastrar</button>
+                <span class="alert alert-danger" *ngIf="!signupForm.valid && signupForm.touched">Por favor verifique os campos em vermelho</span>
+                <button type="reset" class="btn btn-primary">Reset</button>
+              </form>
+              <!-- <p>{{initialPassword}}</p>
+              <p>{{signupForm.get('passwordCheck').value}}</p> -->
+    </div>
+</div>
