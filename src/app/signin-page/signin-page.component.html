@@ -1,0 +1,21 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pt-md-4 mx-auto text-center">
+                <h1>Entrar</h1>
+              </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 mainBody">
+            <form [formGroup]="signinForm" class="form-signin" (ngSubmit)="onSubmit()">
+                <input type="email" class="form-control" id="email" formControlName="email" placeholder="Email" autocomplete="email">
+                <input type="password" id="password" class="form-control" formControlName="password" placeholder="Senha">
+                <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]='!signinForm.valid'>Sign in</button>
+            </form> 
+        </div>
+    </div>
+
+</div>

@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FooterComponent } from './footer/footer.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SigninPageComponent } from './signin-page/signin-page.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   {path: 'home', redirectTo: '/'},
   {path: 'materias', component: MateriasPageComponent},
   {path: 'cadastro', component: CadastroComponent},
+  {path: 'entrar', component: SigninPageComponent},
   {path: 'materia/:materiaId/aula/:idaula', component: AulaComponent, children:[
     {path: 'exercicio/:exercicioId', component: ExercicioComponent}]},
   {path: 'page-not-found', component: PageNotFoundComponent},
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
     AulaCardComponent,
     PageNotFoundComponent,
     FooterComponent,
-    CadastroComponent
+    CadastroComponent,
+    SigninPageComponent
   ],
   imports: [
     BrowserModule,
